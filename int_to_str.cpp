@@ -1,30 +1,30 @@
 #include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
+#include <iostream>
+#include <string>
 
-string int_to_str(int n, string result)
+using namespace std;
+
+string int_to_str(int n)
 {
-	result = "";
+	string result = "";
 
 	while(n > 0)
 	{
 		int r = n % 10;
-		result = result.insert(0, r + '0');
 
-		n -= r;
+		char c = r + '0';
+		result = c + result;
+
 		n /= 10;
 	}
 
 	return result;
 }
 
-
 int main(int argc, char* argv[])
 {
 	int n = 5679;
-	string result;
-
-	result = int_to_str(n, result);
+	string result = int_to_str(n);
 
 	cout << n << " to " << result;
 
